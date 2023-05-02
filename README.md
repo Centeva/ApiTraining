@@ -43,7 +43,7 @@ dotnet tool run dotnet-ef database update --project src/ApiTraining
 To add a new migration, run this command from the root of this repository:
 
 ```sh
-dotnet tool run dotnet-ef migrations add "Initial" --project src/ApiTraining
+dotnet tool run dotnet-ef migrations add [NewMigrationName] --project src/ApiTraining
 ```
 
 ## Running the Application
