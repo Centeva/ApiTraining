@@ -1,4 +1,5 @@
-﻿using ApiTraining.FunctionalTests.Fixtures;
+﻿using System.Text.Json;
+using ApiTraining.FunctionalTests.Fixtures;
 using Ardalis.HttpClientTestExtensions;
 
 namespace ApiTraining.FunctionalTests.Endpoints.Contacts
@@ -23,10 +24,17 @@ namespace ApiTraining.FunctionalTests.Endpoints.Contacts
         [Fact]
         public async Task WhenFound_ReturnsDetails()
         {
-            var result = await _client.GetAndDeserializeAsync<ContactResult>($"contacts/{SeedData.Contact1.Id}");
+            var response = await _client.GetAsync($"contacts/{SeedData.Contact1.Id}");
+
+            response.EnsureSuccessStatusCode();
+
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            stringResponse.Should().NotBeNullOrEmpty();
+
+            var result = JsonSerializer.Deserialize<ContactResult>(stringResponse);
 
             result.Should().NotBeNull();
-            result.Id.Should().Be(SeedData.Contact1.Id);
+            result!.Id.Should().Be(SeedData.Contact1.Id);
             result.FirstName.Should().Be(SeedData.Contact1.FirstName);
             result.LastName.Should().Be(SeedData.Contact1.LastName);
             result.BirthDate.Should().Be(SeedData.Contact1.BirthDate);
