@@ -31,12 +31,13 @@ namespace ApiTraining.FunctionalTests.Endpoints.Contacts
             result.FirstName.Should().Be(SeedData.Contact1.FirstName);
             result.LastName.Should().Be(SeedData.Contact1.LastName);
             result.BirthDate.Should().Be(SeedData.Contact1.BirthDate);
+            result.EmailAddress.Should().Be(SeedData.Contact1.EmailAddress);
         }
     }
 
 
     /// <summary>
-    /// Placeholder for API result.  You may end up moving this to the application code later, in
+    /// Placeholder for API results.  You may end up moving this to the application code later, in
     /// which case reference that in the tests above.
     /// </summary>
     internal class ContactResult
@@ -44,6 +45,7 @@ namespace ApiTraining.FunctionalTests.Endpoints.Contacts
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string? EmailAddress { get; set; }
     }
 }
