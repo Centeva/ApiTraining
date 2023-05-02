@@ -35,6 +35,10 @@ namespace ApiTraining.FunctionalTests.Endpoints.Contacts
     }
 
 
+    /// <summary>
+    /// Placeholder for API result.  You may end up moving this to the application code later, in
+    /// which case reference that in the tests above.
+    /// </summary>
     internal class ContactResult
     {
         public Guid Id { get; set; }

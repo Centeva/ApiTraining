@@ -3,7 +3,7 @@
 namespace ApiTraining.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
     // Code common to all controllers can go here

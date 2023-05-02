@@ -1,6 +1,5 @@
-﻿namespace ApiTraining
+﻿namespace ApiTraining;
+
+public class WebMarker
 {
-    public class WebMarker
-    {
-    }
 }
