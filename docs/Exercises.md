@@ -8,8 +8,117 @@
 
 3. Implement the API endpoint to get the existing tests to pass.
 
+4. Implement a new API endpoint for creation of a Contact.  Include new
+   functional tests as well that verify various scenarios:
+
+   * The endpoint should receive `POST` requests to `/contacts`, with the
+     contact detail as JSON in the request body.
+   * A successful creation should produce HTTP status code of 201 (Created).
+   * The new Contact should be persisted to the data store.
+
 ## Additional Tasks
 
 Below are some additional exercises you can perform for training or
-demonstration purposes.
+demonstration purposes.  You can do these in any order, although they are
+generally ordered least to most complex.
 
+1. Add data validation to the Contact creation endpoint.  Ensure that all
+   properties of the Contact are provided, with the following additional rules:
+
+   * First and Last Names are required, with a maximum length of 50 characters
+   * BirthDate, if provided, should be in the past
+   * EmailAddress, if provided, should be in a valid format
+
+   Invalid requests should not result in creation of a Contact, and should
+   produce a 400-level HTTP status code, ideally with information about the
+   nature of the failure.
+
+2. Data integrity is crucial in important business applications.  Explore ways
+   to ensure that no invalid Contact instance can be created by your fellow
+   developers.  Assume that Contacts MUST have a First and Last Name and that
+   the validation requirements above cannot be circumvented at any point.  Some
+   techniques you can try:
+
+   * Constructor parameters
+   * private or protected setters
+   * Guard clauses and exceptions for parameter validation
+
+   Write unit tests as needed to provided an executable specification of new
+   behavior.
+
+3. Create a new API endpoint for modification of a Contact.  Continue to ensure
+   data integrity.
+
+   * Respond to POST /contacts/{id}
+   * Produce a 200 (Ok) HTTP status code when successful
+   * Produce a 404 (Not Found) status code if the requested Contact does not
+     exist
+   * Write functional tests to specify possible scenarios
+  
+4. Create a new API endpoint for deletion of a Contact.  Continue to ensure data
+   integrity.
+
+   * Respond to DELETE /contacts/{id}
+   * Produce a 204 (No Content) HTTP status code when successful
+   * Produce a 404 (Not Found) status code if the requested Contact does not
+     exist
+   * Write functional tests to specify possible scenarios
+
+5. Implement the following business rule, with appropriate validation:
+
+   Contacts can have one or more Addresses.  Each Address has the following
+   properties, all of which are required:
+
+   * Street
+   * City
+   * State Code
+   * Postal Code
+
+   Ensure that Entity Framework is properly configured to persist instances of
+   Address.
+
+   Questions to explore:
+
+   * Should a Contact's addresses be returned as part of the GET /contacts/{id}
+     API endpoint?
+   * Can an Address exist independently of a Contact?  
+   * What data type is best to use to represent a Contact's collection of
+     Addresses?
+
+6. Create additional API endpoints for creation and retrieval of Addresses:
+
+   * POST /contacts/{id}/addresses to create a new Address for a Contact
+   * GET /contacts/{id}/addresses to get a list of a Contact's Addresses
+   * DELETE /contacts/{contactId}/addresses/{addressId} to remove an Address
+   * Use the same HTTP status codes as above for various responses
+
+7. Explore the use of Value Objects to enrich your domain model and reduce
+   "primitive obsession."  
+
+   * A Contact's First and Last Names always go together - create a `PersonName`
+     ValueObject and update your application code and Entity Framework
+     configuration.  Encapsulate any validation or domain logic that belongs to
+     names.  (Such as formatting into a "full name".)  Do not modify the
+     database structure or the shape of any API responses.
+   * A Contact's EmailAddress has more meaning than a `string` type.  Use a
+     Value Object to represent it and encapsulate validation and domain logic.
+
+8. Explore the use of the Repository pattern to abstract and encapsulate data
+   access logic.  Ensure that your Controllers do not have any references to the
+   Entity Framework `DbContext`.  (Centeva team members, you have access to the
+   `Centeva.DomainModeling` package that may help here.)
+
+9. Explore separation of your Web API logic from your application logic using
+   the Command/Query Separation pattern and a tool like MediatR.  At this
+   point you may consider splitting the solution into multiple .NET projects.
+
+   Your Controller class(es) should now better follow the Single Responsibility
+   Principle by handling only the mapping of HTTP methods and URLs to requests
+   within your application.
+
+   Write unit tests for your request handlers where appropriate.
+
+   Questions to explore:
+
+   * What are the benefits and drawbacks of using this pattern?
+   * At what point does it make sense to implement?
