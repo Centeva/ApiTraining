@@ -1,6 +1,5 @@
 ﻿using ApiTraining.FunctionalTests.Fixtures;
 using Ardalis.HttpClientTestExtensions;
-using FluentAssertions;
 
 namespace ApiTraining.FunctionalTests.Endpoints.Contacts
 {
