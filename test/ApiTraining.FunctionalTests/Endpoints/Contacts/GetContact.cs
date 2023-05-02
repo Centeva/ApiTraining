@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApiTraining.FunctionalTests.Fixtures;
+﻿using ApiTraining.FunctionalTests.Fixtures;
 using Ardalis.HttpClientTestExtensions;
 using FluentAssertions;
 
-namespace ApiTraining.FunctionalTests.EndpointTests.Contacts
+namespace ApiTraining.FunctionalTests.Endpoints.Contacts
 {
     public class GetContact : IClassFixture<CustomWebApplicationFactory>
     {
@@ -23,13 +18,13 @@ namespace ApiTraining.FunctionalTests.EndpointTests.Contacts
         {
             var badId = Guid.NewGuid();
 
-            await _client.GetAndEnsureNotFoundAsync($"api/contacts/{badId}");
+            await _client.GetAndEnsureNotFoundAsync($"contacts/{badId}");
         }
 
         [Fact]
         public async Task WhenFound_ReturnsDetails()
         {
-            var result = await _client.GetAndDeserializeAsync<ContactResult>($"api/contacts/{SeedData.Contact1.Id}");
+            var result = await _client.GetAndDeserializeAsync<ContactResult>($"contacts/{SeedData.Contact1.Id}");
 
             result.Should().NotBeNull();
             result.Id.Should().Be(SeedData.Contact1.Id);
