@@ -10,10 +10,10 @@ be used for training purposes and for technical interviews.
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) -
   persistence of application data.  This code uses SQLite as the data store to
   avoid the need for running extra services.
-- [FluentValidation](https://docs.fluentvalidation.net/) - specify .NET API
-  model validation rules
 - [Fluent Assertions](https://fluentassertions.com/) - extension methods for
   better .NET test readability
+- [HttpClientTestExtensions](https://github.com/ardalis/HttpClientTestExtensions)
+  - extension methods for `HttpClient` for more expressive Functional Tests.
 
 ## Setup
 
