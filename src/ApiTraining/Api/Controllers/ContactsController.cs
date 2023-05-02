@@ -12,7 +12,7 @@ public class ContactsController : ApiControllerBase
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetContact(Guid id)
+    public IActionResult GetContact(Guid id)
     {
         return Ok();
     }
