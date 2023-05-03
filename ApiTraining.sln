@@ -5,21 +5,24 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41D38C42-029E-4158-A50D-32C544EFC95D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTraining", "src\ApiTraining\ApiTraining.csproj", "{023FD9F6-BB6B-4370-BF0C-78C25140677A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTraining", "src\ApiTraining\ApiTraining.csproj", "{023FD9F6-BB6B-4370-BF0C-78C25140677A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7CA2890B-F0E7-4E0E-8F27-6F5797B24D0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTraining.FunctionalTests", "test\ApiTraining.FunctionalTests\ApiTraining.FunctionalTests.csproj", "{28991720-E119-41EC-A753-476935AF52E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTraining.FunctionalTests", "test\ApiTraining.FunctionalTests\ApiTraining.FunctionalTests.csproj", "{28991720-E119-41EC-A753-476935AF52E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTraining.UnitTests", "test\ApiTraining.UnitTests\ApiTraining.UnitTests.csproj", "{7103227E-0717-43EE-8CB8-951758CC753F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTraining.UnitTests", "test\ApiTraining.UnitTests\ApiTraining.UnitTests.csproj", "{7103227E-0717-43EE-8CB8-951758CC753F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F73B856-F9EE-4F6A-BA42-9ED8444383A2}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Exercises.md = docs\Exercises.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{023FD9F6-BB6B-4370-BF0C-78C25140677A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -35,9 +38,15 @@ Global
 		{7103227E-0717-43EE-8CB8-951758CC753F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7103227E-0717-43EE-8CB8-951758CC753F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{023FD9F6-BB6B-4370-BF0C-78C25140677A} = {41D38C42-029E-4158-A50D-32C544EFC95D}
 		{28991720-E119-41EC-A753-476935AF52E1} = {7CA2890B-F0E7-4E0E-8F27-6F5797B24D0D}
 		{7103227E-0717-43EE-8CB8-951758CC753F} = {7CA2890B-F0E7-4E0E-8F27-6F5797B24D0D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6E5BEB7-B2C4-4A78-9640-1DB4A254C183}
 	EndGlobalSection
 EndGlobal
