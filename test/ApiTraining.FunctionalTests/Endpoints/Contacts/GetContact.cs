@@ -7,10 +7,16 @@ namespace ApiTraining.FunctionalTests.Endpoints.Contacts;
 public class GetContact : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;
+    private readonly JsonSerializerOptions _jsonOptions;
 
     public GetContact(CustomWebApplicationFactory factory)
     {
         _client = factory.CreateClient();
+        // Match the default serializer for Asp.Net
+        _jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
     }
 
     [Fact]
@@ -31,7 +37,7 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
         var stringResponse = await response.Content.ReadAsStringAsync();
         stringResponse.Should().NotBeNullOrEmpty();
 
-        var result = JsonSerializer.Deserialize<ContactResult>(stringResponse);
+        var result = JsonSerializer.Deserialize<ContactResult>(stringResponse, _jsonOptions);
 
         result.Should().NotBeNull();
         result!.Id.Should().Be(SeedData.Contact1.Id);
