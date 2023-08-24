@@ -33,18 +33,22 @@ required tools with:
 dotnet tool restore
 ```
 
-To create/update your database by applying missing migrations, run this command
-from the root of this repository:
+To get started and create the database, run this command from the root of this
+repository:
 
 ```sh
 dotnet tool run dotnet-ef database update --project src/ApiTraining
 ```
 
-To add a new migration, run this command from the root of this repository:
+If you need to add a new migration later, run this command from the root of this
+repository:
 
 ```sh
 dotnet tool run dotnet-ef migrations add [NewMigrationName] --project src/ApiTraining
 ```
+
+After creating a new migration, run the `database update` command above to
+refresh your database.
 
 ## Running the Application
 
