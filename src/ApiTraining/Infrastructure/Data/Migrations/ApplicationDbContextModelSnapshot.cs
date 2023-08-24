@@ -15,7 +15,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.16");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
 
             modelBuilder.Entity("ApiTraining.Domain.Entities.Contact", b =>
                 {
@@ -24,6 +24,9 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("BirthDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmailAddress")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")

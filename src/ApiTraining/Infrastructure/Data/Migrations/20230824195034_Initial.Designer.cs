@@ -11,13 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiTraining.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230502161036_Initial")]
+    [Migration("20230824195034_Initial")]
     partial class Initial
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.16");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
 
             modelBuilder.Entity("ApiTraining.Domain.Entities.Contact", b =>
                 {
@@ -26,6 +27,9 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("BirthDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmailAddress")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")

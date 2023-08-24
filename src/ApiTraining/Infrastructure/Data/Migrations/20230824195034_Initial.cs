@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ApiTraining.Infrastructure.Data.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -16,7 +18,8 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EmailAddress = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,6 +27,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                 });
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
