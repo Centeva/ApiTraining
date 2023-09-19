@@ -53,7 +53,8 @@ generally ordered least to most complex.
    data integrity.
 
    * Respond to POST /contacts/{id}
-   * Produce a 200 (Ok) HTTP status code when successful
+   * Produce a 200 (Ok) HTTP status code when successful, without any 
+     information in the request body
    * Produce a 404 (Not Found) status code if the requested Contact does not
      exist
    * Write functional tests to specify possible scenarios
