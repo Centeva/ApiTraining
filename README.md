@@ -55,6 +55,9 @@ refresh your database.
 Run the application in debug mode, which should open your browser to the
 SwaggerUI interface, from the usual Visual Studio debug command.
 
+A contact with the ID "c0333bcb-54d3-490d-8a0f-644b7ee27473" has been seeded
+into the database - you can use it for manual testing.
+
 ## Running Tests
 
 Run tests from the Visual Studio Test Explorer (or the Test menu) or run `dotnet

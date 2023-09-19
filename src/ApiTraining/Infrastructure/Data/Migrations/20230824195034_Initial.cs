@@ -25,6 +25,17 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                 {
                     table.PrimaryKey("PK_Contacts", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Contacts",
+                columns: new[] { "Id", "FirstName", "LastName", "BirthDate", "EmailAddress" },
+                values: new object[] { 
+                    new Guid("c0333bcb-54d3-490d-8a0f-644b7ee27473"), 
+                    "John", 
+                    "Test", 
+                    new DateTime(1976, 2, 29), 
+                    "john.test@examplecom" 
+                });
         }
 
         /// <inheritdoc />
