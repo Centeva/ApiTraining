@@ -9,7 +9,7 @@
 3. Implement the API endpoint to get the existing tests to pass.
 
 4. Implement a new API endpoint for creation of a Contact.  Include new
-   functional tests as well that verify various these requirements:
+   functional tests as well that verify these requirements:
 
    * The endpoint should receive `POST` requests to `/contacts`, with the
      contact detail as JSON in the request body.
