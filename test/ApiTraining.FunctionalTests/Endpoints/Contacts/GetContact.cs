@@ -1,4 +1,6 @@
 ﻿using System.Text.Json;
+
+using ApiTraining.Api.Models;
 using ApiTraining.FunctionalTests.Fixtures;
 using Ardalis.HttpClientTestExtensions;
 
@@ -37,7 +39,7 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
         var stringResponse = await response.Content.ReadAsStringAsync();
         stringResponse.Should().NotBeNullOrEmpty();
 
-        var result = JsonSerializer.Deserialize<ContactResult>(stringResponse, _jsonOptions);
+        var result = JsonSerializer.Deserialize<ContactDto>(stringResponse, _jsonOptions);
 
         result.Should().NotBeNull();
         result!.Id.Should().Be(SeedData.Contact1.Id);
@@ -46,18 +48,4 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
         result.BirthDate.Should().Be(SeedData.Contact1.BirthDate);
         result.EmailAddress.Should().Be(SeedData.Contact1.EmailAddress);
     }
-}
-
-
-/// <summary>
-/// Placeholder for API results.  You may end up moving this to the application code later, in
-/// which case reference that in the tests above.
-/// </summary>
-internal class ContactResult
-{
-    public Guid Id { get; set; }
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public DateTime? BirthDate { get; set; }
-    public string? EmailAddress { get; set; }
 }
