@@ -1,6 +1,6 @@
-﻿using ApiTraining.Domain.Primitives;
+﻿using ApiTraining.Core.Common;
 
-namespace ApiTraining.Domain.Entities;
+namespace ApiTraining.Core.Contacts;
 
 public class Contact : Entity
 {

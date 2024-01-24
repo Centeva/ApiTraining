@@ -1,4 +1,5 @@
-﻿using ApiTraining.Domain.Entities;
+﻿using ApiTraining.Core.Contacts;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

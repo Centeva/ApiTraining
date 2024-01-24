@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiTraining.Api.Controllers;
+namespace ApiTraining.WebApi.Contacts;
 
 [ApiController]
 [Route("[controller]")]

@@ -1,7 +1,8 @@
 ﻿using System.Text.Json;
 
-using ApiTraining.Api.Models;
 using ApiTraining.FunctionalTests.Fixtures;
+using ApiTraining.WebApi.Contacts;
+
 using Ardalis.HttpClientTestExtensions;
 
 namespace ApiTraining.FunctionalTests.Endpoints.Contacts;
