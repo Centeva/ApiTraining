@@ -17,33 +17,31 @@ be used for training purposes and for technical interviews.
 
 ## Project Structure
 
-This is a standard ASP.NET Core Web API application, but with three "layers"
-to separate concerns.  A real project would probably put these layers 
-into separate .NET projects, but for this exercise they are all in the same 
-project.
+This is a standard ASP.NET Core Web API application, but with three "layers" to
+separate concerns.  A real project would probably put these layers into separate
+.NET projects, but for this exercise they are all in the same project.
 
 ### `Core` Folder
 
 This contains the "domain model" for the application and defines the business
-objects.  Each module (only one, Contacts, so far) has its own folder
-under `Core`, with shared code in a `Common` folder.  The `Core` folder is 
-intended to be the most stable part of the application, and should not change 
-much over time.  It should not reference on any other part of the application 
-code.
+objects.  Each module (only one, Contacts, so far) has its own folder under
+`Core`, with shared code in a `Common` folder.  The `Core` folder is intended to
+be the most stable part of the application, and should not change much over
+time.  It should not reference on any other part of the application code.
 
 ### `WebApi` Folder
 
-This contains the Web API controllers and other code that is specific to the
-Web API.  It references classes in the `Core` folder, but nothing else.  Each
-"feature" or section of the API has its own folder which contains the 
+This contains the Web API controllers and other code that is specific to the Web
+API.  It references classes in the `Core` folder, but nothing else.  Each
+"feature" or section of the API has its own folder which contains the
 controller(s) and any other code specific to that feature.
 
 ### `Infrastructure` Folder
 
 This contains code that is specific to the infrastructure of the application.
 This includes things like database access, logging, and other things that are
-not specific to the Web API.  For example, it contains the configuration
-for Entity Core Framework, which is used to access the database.
+not specific to the Web API.  For example, it contains the configuration for
+Entity Core Framework, which is used to access the database.
 
 ## Setup
 
@@ -70,8 +68,8 @@ Package Manager Console to run this command from the root of this repository:
 dotnet tool run dotnet-ef database update --project src/ApiTraining
 ```
 
-**IF** you need to add a new migration later, run this command from the root of this
-repository:
+**IF** you need to add a new migration later, run this command from the root of
+this repository:
 
 ```sh
 dotnet tool run dotnet-ef migrations add [NewMigrationName] --project src/ApiTraining
