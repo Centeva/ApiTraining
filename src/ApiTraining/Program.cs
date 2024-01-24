@@ -34,3 +34,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// So we can reference this assembly elsewhere
+public partial class Program { }

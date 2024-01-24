@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ApiTraining.FunctionalTests.Fixtures;
 
-public class CustomWebApplicationFactory : WebApplicationFactory<WebMarker>
+public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override IHost CreateHost(IHostBuilder builder)
     {
