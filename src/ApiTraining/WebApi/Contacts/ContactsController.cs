@@ -16,6 +16,10 @@ public class ContactsController : ControllerBase
     [HttpGet("{id:guid}")]
     public IActionResult GetContact(Guid id)
     {
+        _logger.LogInformation("Getting contact with ID {Id}", id);
+
+        // TODO: Actually get the contact
+
         return Ok();
     }
 }
