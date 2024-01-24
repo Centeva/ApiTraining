@@ -6,7 +6,7 @@ be used for training purposes and for technical interviews.
 ## Technologies
 
 - [ASP.NET
-  Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0)
+  Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0)
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) -
   persistence of application data.  This code uses SQLite as the data store to
   avoid the need for running extra services.
@@ -14,6 +14,36 @@ be used for training purposes and for technical interviews.
   better .NET test readability
 - [HttpClientTestExtensions](https://github.com/ardalis/HttpClientTestExtensions)
   - extension methods for `HttpClient` for more expressive Functional Tests.
+
+## Project Structure
+
+This is a standard ASP.NET Core Web API application, but with three "layers"
+to separate concerns.  A real project would probably put these layers 
+into separate .NET projects, but for this exercise they are all in the same 
+project.
+
+### `Core` Folder
+
+This contains the "domain model" for the application and defines the business
+objects.  Each module (only one, Contacts, so far) has its own folder
+under `Core`, with shared code in a `Common` folder.  The `Core` folder is 
+intended to be the most stable part of the application, and should not change 
+much over time.  It should not reference on any other part of the application 
+code.
+
+### `WebApi` Folder
+
+This contains the Web API controllers and other code that is specific to the
+Web API.  It references classes in the `Core` folder, but nothing else.  Each
+"feature" or section of the API has its own folder which contains the 
+controller(s) and any other code specific to that feature.
+
+### `Infrastructure` Folder
+
+This contains code that is specific to the infrastructure of the application.
+This includes things like database access, logging, and other things that are
+not specific to the Web API.  For example, it contains the configuration
+for Entity Core Framework, which is used to access the database.
 
 ## Setup
 
@@ -33,14 +63,14 @@ required tools with:
 dotnet tool restore
 ```
 
-To get started and create the database, run this command from the root of this
-repository:
+To get started and create the database, use a terminal or the Visual Studio
+Package Manager Console to run this command from the root of this repository:
 
 ```sh
 dotnet tool run dotnet-ef database update --project src/ApiTraining
 ```
 
-If you need to add a new migration later, run this command from the root of this
+**IF** you need to add a new migration later, run this command from the root of this
 repository:
 
 ```sh
