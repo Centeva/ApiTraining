@@ -53,7 +53,7 @@ generally ordered least to most complex.
    data integrity.
 
    * Respond to POST /contacts/{id}
-   * Produce a 200 (Ok) HTTP status code when successful, without any 
+   * Produce a 200 (Ok) HTTP status code when successful, without any
      information in the request body
    * Produce a 404 (Not Found) status code if the requested Contact does not
      exist
@@ -126,3 +126,12 @@ generally ordered least to most complex.
 
    * What are the benefits and drawbacks of using this pattern?
    * At what point does it make sense to implement?
+
+10. Convert the application to use the [Minimal API syntax](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/overview).  
+    (This is a new feature in .NET 6+.)  You will need to modify the Program.cs file to
+    enable this featuer.
+
+    Questions to explore:
+
+    * What are the benefits and drawbacks of using this syntax?
+    * At what point does it make sense to implement?
