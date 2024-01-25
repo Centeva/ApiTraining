@@ -1,6 +1,7 @@
 ﻿using ApiTraining.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,14 @@ namespace ApiTraining.FunctionalTests.Fixtures;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
+    private readonly SqliteConnection _connection;
+
+    public CustomWebApplicationFactory()
+    {
+        _connection = new SqliteConnection("Data Source=:memory:");
+        _connection.Open();
+    }
+
     protected override IHost CreateHost(IHostBuilder builder)
     {
         // This is used to create a scope for seeding data
@@ -53,7 +62,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         });
     }
 
-    private static void UseInMemoryDatabase(IServiceCollection services)
+    private void UseInMemoryDatabase(IServiceCollection services)
     {
         var descriptor =
             services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
@@ -63,9 +72,15 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.Remove(descriptor);
         }
 
-        string inMemoryCollectionName = Guid.NewGuid().ToString();
-
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseInMemoryDatabase(inMemoryCollectionName));
+        { 
+            options.UseSqlite(_connection);
+        });
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        _connection.Close();
     }
 }
