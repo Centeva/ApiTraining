@@ -34,7 +34,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                     "John", 
                     "Test", 
                     new DateTime(1976, 2, 29), 
-                    "john.test@examplecom" 
+                    "john.test@example.com" 
                 });
         }
 
