@@ -3,6 +3,9 @@
 This is a small coding exercise involving a simple Web API.  It is intended to
 be used for training purposes and for technical interviews.
 
+After reading through this introduction, see [docs/Exercises.md](docs/Exercises.md) 
+for some programming tasks to complete.
+
 ## Technologies
 
 - [ASP.NET
@@ -91,6 +94,5 @@ into the database - you can use it for manual testing.
 Run tests from the Visual Studio Test Explorer (or the Test menu) or run `dotnet
 test` in your terminal.
 
-## Next Steps
 
-See [docs/Exercises.md](docs/Exercises.md) for tasks to complete.
+
