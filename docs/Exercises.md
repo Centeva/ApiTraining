@@ -129,7 +129,7 @@ generally ordered least to most complex.
 
 10. Convert the application to use the [Minimal API syntax](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/overview).  
     (This is a new feature in .NET 6+.)  You will need to modify the Program.cs file to
-    enable this featuer.
+    enable this feature.
 
     Questions to explore:
 
