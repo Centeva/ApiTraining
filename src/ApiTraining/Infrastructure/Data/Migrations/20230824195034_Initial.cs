@@ -18,7 +18,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    BirthDate = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     EmailAddress = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -33,7 +33,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                     new Guid("c0333bcb-54d3-490d-8a0f-644b7ee27473"), 
                     "John", 
                     "Test", 
-                    new DateTime(1976, 2, 29), 
+                    new DateOnly(1976, 2, 29), 
                     "john.test@example.com" 
                 });
         }

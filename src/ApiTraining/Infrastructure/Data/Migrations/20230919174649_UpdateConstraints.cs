@@ -11,25 +11,25 @@ namespace ApiTraining.Infrastructure.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
+            migrationBuilder.AlterColumn<DateOnly>(
                 name: "BirthDate",
                 table: "Contacts",
                 type: "TEXT",
                 nullable: true,
-                oldClrType: typeof(DateTime),
+                oldClrType: typeof(DateOnly),
                 oldType: "TEXT");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
+            migrationBuilder.AlterColumn<DateOnly>(
                 name: "BirthDate",
                 table: "Contacts",
                 type: "TEXT",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                oldClrType: typeof(DateTime),
+                defaultValue: new DateOnly(1, 1, 1),
+                oldClrType: typeof(DateOnly),
                 oldType: "TEXT",
                 oldNullable: true);
         }
