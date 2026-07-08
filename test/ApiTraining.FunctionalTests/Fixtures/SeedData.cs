@@ -1,4 +1,4 @@
-﻿using ApiTraining.Core.Contacts;
+using ApiTraining.Core.Contacts;
 using ApiTraining.Infrastructure.Data;
 
 namespace ApiTraining.FunctionalTests.Fixtures;
@@ -7,7 +7,7 @@ internal static class SeedData
 {
     // Put seed data instances here
 
-    public static readonly Contact Contact1 = new(Guid.NewGuid(), "Joe", "Test")
+    public static readonly Contact Contact1 = new("Joe", "Test")
         { BirthDate = new DateOnly(1980, 1, 1), EmailAddress = "test@example.com" };
 
     public static void PopulateTestData(ApplicationDbContext dbContext)

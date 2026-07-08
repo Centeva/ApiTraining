@@ -1,11 +1,6 @@
-﻿namespace ApiTraining.Core.Common;
+namespace ApiTraining.Core.Common;
 
 public abstract class Entity
 {
-    public Guid Id { get; private set; }
-
-    protected Entity(Guid id)
-    {
-        Id = id;
-    }
+    public Guid Id { get; private set; } = Guid.CreateVersion7();
 }
