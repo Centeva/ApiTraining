@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -30,7 +30,7 @@ namespace ApiTraining.Infrastructure.Data.Migrations
                 table: "Contacts",
                 columns: new[] { "Id", "FirstName", "LastName", "BirthDate", "EmailAddress" },
                 values: new object[] { 
-                    new Guid("c0333bcb-54d3-490d-8a0f-644b7ee27473"), 
+                    new Guid("019f42ee-b3e4-769e-b10c-449a47879567"), 
                     "John", 
                     "Test", 
                     new DateOnly(1976, 2, 29), 

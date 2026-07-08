@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 using ApiTraining.FunctionalTests.Fixtures;
 using ApiTraining.WebApi.Contacts;
@@ -33,11 +33,11 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
     [Fact]
     public async Task WhenFound_ReturnsDetails()
     {
-        var response = await _client.GetAsync($"contacts/{SeedData.Contact1.Id}");
+        var response = await _client.GetAsync($"contacts/{SeedData.Contact1.Id}", TestContext.Current.CancellationToken);
 
         response.EnsureSuccessStatusCode();
 
-        var stringResponse = await response.Content.ReadAsStringAsync();
+        var stringResponse = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
         stringResponse.Should().NotBeNullOrEmpty();
 
         var result = JsonSerializer.Deserialize<ContactDto>(stringResponse, _jsonOptions);
