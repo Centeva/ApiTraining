@@ -1,0 +1,11 @@
+@ApiTraining_HostAddress = http://localhost:5198
+
+GET {{ApiTraining_HostAddress}}/contacts/019f42ee-b3e4-769e-b10c-449a47879567
+Accept: application/json
+
+###
+
+GET {{ApiTraining_HostAddress}}/contacts/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+###
