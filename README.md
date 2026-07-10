@@ -3,8 +3,8 @@
 This is a small coding exercise involving a simple Web API.  It is intended to
 be used for training purposes and for technical interviews.
 
-After reading through this introduction, see [docs/Exercises.md](docs/Exercises.md) 
-for some programming tasks to complete.
+After reading through this introduction, see
+[docs/Exercises.md](docs/Exercises.md) for some programming tasks to complete.
 
 ## Technologies
 
@@ -15,8 +15,8 @@ for some programming tasks to complete.
   avoid the need for running extra services.
 - [AwesomeAssertions](https://awesomeassertions.org/) - extension methods for
   better .NET test readability
-- [HttpClientTestExtensions](https://github.com/ardalis/HttpClientTestExtensions)
-  - extension methods for `HttpClient` for more expressive Functional Tests.
+- [AwesomeAssertions.Web](https://github.com/adrianiftode/FluentAssertions.Web) - assertion
+  extension methods for AwesomeAssertions for inspecting HTTP responses
 
 ## Project Structure
 

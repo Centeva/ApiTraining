@@ -1,25 +1,14 @@
-using System.Text.Json;
-
 using ApiTraining.FunctionalTests.Fixtures;
-using ApiTraining.WebApi.Contacts;
-
-using Ardalis.HttpClientTestExtensions;
 
 namespace ApiTraining.FunctionalTests.Endpoints.Contacts;
 
 public class GetContact : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;
-    private readonly JsonSerializerOptions _jsonOptions;
 
     public GetContact(CustomWebApplicationFactory factory)
     {
         _client = factory.CreateClient();
-        // Match the default serializer for Asp.Net
-        _jsonOptions = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
     }
 
     [Fact]
@@ -27,7 +16,9 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
     {
         var badId = Guid.NewGuid();
 
-        await _client.GetAndEnsureNotFoundAsync($"contacts/{badId}");
+        var response = await _client.GetAsync($"contacts/{badId}", TestContext.Current.CancellationToken);
+
+        response.Should().Be404NotFound();
     }
 
     [Fact]
@@ -35,18 +26,13 @@ public class GetContact : IClassFixture<CustomWebApplicationFactory>
     {
         var response = await _client.GetAsync($"contacts/{SeedData.Contact1.Id}", TestContext.Current.CancellationToken);
 
-        response.EnsureSuccessStatusCode();
-
-        var stringResponse = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
-        stringResponse.Should().NotBeNullOrEmpty();
-
-        var result = JsonSerializer.Deserialize<ContactDto>(stringResponse, _jsonOptions);
-
-        result.Should().NotBeNull();
-        result!.Id.Should().Be(SeedData.Contact1.Id);
-        result.FirstName.Should().Be(SeedData.Contact1.FirstName);
-        result.LastName.Should().Be(SeedData.Contact1.LastName);
-        result.BirthDate.Should().Be(SeedData.Contact1.BirthDate);
-        result.EmailAddress.Should().Be(SeedData.Contact1.EmailAddress);
+        response.Should().Be200Ok().And.BeAs(new
+        {
+            Id = SeedData.Contact1.Id,
+            FirstName = SeedData.Contact1.FirstName,
+            LastName = SeedData.Contact1.LastName,
+            BirthDate = SeedData.Contact1.BirthDate,
+            EmailAddress = SeedData.Contact1.EmailAddress
+        });
     }
 }
