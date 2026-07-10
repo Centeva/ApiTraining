@@ -82,6 +82,9 @@ refresh your database.
 Run the application in debug mode, which should open your browser to the
 SwaggerUI interface, from the usual Visual Studio debug command.
 
+You can also open the ApiTraining.http file in Visual Studio and run the
+requests from there.
+
 A contact with the ID "019f42ee-b3e4-769e-b10c-449a47879567" has been seeded
 into the database - you can use it for manual testing.
 
