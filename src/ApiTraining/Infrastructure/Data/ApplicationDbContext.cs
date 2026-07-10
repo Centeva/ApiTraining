@@ -1,7 +1,5 @@
-﻿using System.Reflection;
-
-using ApiTraining.Core.Contacts;
-
+using System.Reflection;
+using ApiTraining.Domain.Contacts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiTraining.Infrastructure.Data;

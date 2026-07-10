@@ -1,4 +1,4 @@
-namespace ApiTraining.Core.Common;
+namespace ApiTraining.Domain.Common;
 
 public abstract class Entity
 {

@@ -1,4 +1,4 @@
-using ApiTraining.Core.Contacts;
+using ApiTraining.Domain.Contacts;
 using ApiTraining.Infrastructure.Data;
 
 namespace ApiTraining.FunctionalTests.Fixtures;

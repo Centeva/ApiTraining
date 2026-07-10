@@ -24,20 +24,20 @@ This is a standard ASP.NET Core Web API application, but with three "layers" to
 separate concerns.  A real project would probably put these layers into separate
 .NET projects, but for this exercise they are all in the same project.
 
-### `Core` Folder
+### `Domain` Folder
 
 This contains the "domain model" for the application and defines the business
 objects.  Each module (only one, Contacts, so far) has its own folder under
-`Core`, with shared code in a `Common` folder.  The `Core` folder is intended to
-be the most stable part of the application, and should not change much over
-time.  It should not reference on any other part of the application code.
+`Domain`, with shared code in a `Common` folder.  The `Domain` folder is
+intended to be the most stable part of the application, and should not change
+much over time.  It should not reference any other part of the application code.
 
-### `WebApi` Folder
+### `Web` Folder
 
-This contains the Web API controllers and other code that is specific to the Web
-API.  It references classes in the `Core` folder, but nothing else.  Each
-"feature" or section of the API has its own folder which contains the
-controller(s) and any other code specific to that feature.
+This contains the controllers and other code that is HTTP-specific.  It
+references classes in the `Domain` folder, but nothing else.  Each "feature" or
+section of the API has its own folder which contains the controller(s) and any
+other code specific to that feature.
 
 ### `Infrastructure` Folder
 

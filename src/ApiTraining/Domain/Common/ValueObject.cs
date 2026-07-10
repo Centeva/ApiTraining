@@ -1,4 +1,4 @@
-﻿namespace ApiTraining.Core.Common;
+namespace ApiTraining.Domain.Common;
 
 // From https://github.com/dotnet-architecture/eShopOnContainers/blob/dev/src/Services/Ordering/Ordering.Domain/SeedWork/ValueObject.cs
 public abstract class ValueObject

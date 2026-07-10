@@ -1,4 +1,4 @@
-﻿namespace ApiTraining.WebApi.Contacts;
+namespace ApiTraining.Web.Contacts;
 
 public class ContactDto
 {
